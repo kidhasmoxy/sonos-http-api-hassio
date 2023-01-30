@@ -2,6 +2,12 @@ name: "Sonos HTTP API"
 version: "1"
 slug: "node_sonos_http_api"
 description: "Sonos HTTP API bridge (https://github.com/jishi/node-sonos-http-api)"
+arch:
+  - armhf
+  - armv7
+  - aarch64
+  - amd64
+  - i386
 startup: before
 boot: auto
 ports:
