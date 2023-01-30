@@ -1,11 +1,10 @@
-ARG BUILD_FROM
-FROM $BUILD_FROM
-
-WORKDIR /app
-
-RUN apk --no-cache add tar curl nodejs nodejs-npm && \
-  curl -L https://github.com/jishi/node-sonos-http-api/archive/master.tar.gz | tar xz -C /app && mv /app/node-sonos-http-api-master/* /app && rm -rf /app/node-sonos-http-api-master && npm install --production
+FROM chrisns/docker-node-sonos-http-api
 
 EXPOSE 5005
+
+USER node
+
+HEALTHCHECK --interval=1m --timeout=2s \
+  CMD curl -LSfs http://localhost:5005/zones || exit 1
 
 CMD npm start
