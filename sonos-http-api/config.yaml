@@ -1,0 +1,9 @@
+name: "Sonos HTTP API"
+version: "1"
+slug: "node_sonos_http_api"
+description: "Sonos HTTP API bridge (https://github.com/jishi/node-sonos-http-api)"
+startup: before
+boot: auto
+ports:
+  5005/tcp: 5005 
+host_network: yes
